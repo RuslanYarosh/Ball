@@ -22,3 +22,22 @@
  end
 
 ball("AABCCC")
+
+ def ball(way)
+    way_array = way.split("")
+    state = [1,0,0]
+    while !(way_array.empty?)
+      letter_step = way_array.shift
+      case letter_step
+      when "A"
+              state[0], state[2]  = state[2], state[0]
+      when "B"
+         state[0], state[1]  = state[1], state[0]
+      when "C"      
+         state[1], state[2]  = state[2], state[1]
+      end
+    end
+    print state
+ end
+
+ball("AABCC")
